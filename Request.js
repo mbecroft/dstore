@@ -190,7 +190,8 @@ define([
 					target = '(' + target + ')';
 				}
 			}
-			return [encodeURIComponent(args[0]) + '=' + (type === 'eq' ? '' : type + '=') + encodeURIComponent(target)];
+			return [encodeURIComponent(args[0]) + '=' + (type === 'eq' ? '' : type + '=') +
+				encodeURIComponent(target).replace(/\(/g, "%28").replace(/\)/g, "%29")];
 		},
 		_renderSortParams: function (sort) {
 			// summary:
